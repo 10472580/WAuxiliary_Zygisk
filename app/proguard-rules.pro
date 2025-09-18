@@ -11,3 +11,4 @@
 -repackageclasses 'me.hd.wauxv.zygisk.obf'
 
 -dontwarn java.lang.reflect.AnnotatedType
+-dontwarn com.v7878.r8.annotations.KeepCodeAttribute

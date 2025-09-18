@@ -29,6 +29,13 @@ android {
         ndk.abiFilters.addAll(arrayOf("armeabi-v7a", "arm64-v8a"))
     }
 
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
+            version = BuildVersion.cmakeVersion
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -41,19 +48,16 @@ android {
         sourceCompatibility = BuildVersion.java
         targetCompatibility = BuildVersion.java
     }
-    kotlinOptions {
-        jvmTarget = BuildVersion.java.toString()
-        freeCompilerArgs += listOf(
+}
+
+kotlin {
+    jvmToolchain(BuildVersion.jvmToolchain)
+    compilerOptions {
+        freeCompilerArgs.addAll(
             "-Xno-call-assertions",
             "-Xno-param-assertions",
             "-Xno-receiver-assertions"
         )
-    }
-    externalNativeBuild {
-        cmake {
-            path = file("src/main/cpp/CMakeLists.txt")
-            version = "3.22.1"
-        }
     }
 }
 

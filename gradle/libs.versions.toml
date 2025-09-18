@@ -1,12 +1,12 @@
 [versions]
 agp = "8.10.1"
-kotlin = "2.0.21"
-r8annotations = "v0.0.3"
-androidvmtools = "506b66f31b"
+kotlin = "2.2.10"
+r8annotations = "v0.0.4"
+androidvmtools = "92d44ed113"
 kavarefCore = "1.0.1"
-dexkit = "2.0.6"
+dexkit = "2.0.7"
 eclipseJgit = "7.3.0.202506031305-r"
-zygisk = "c6a38eeb2a"
+zygisk = "358a146d87"
 lsparanoid = "0.6.0"
 
 [libraries]
