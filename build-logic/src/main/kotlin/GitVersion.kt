@@ -31,6 +31,6 @@ object GitVersion {
     }
 
     fun getBuildVersionName(project: Project): String {
-        return BuildVersion.versionName + getGitHeadRefsSuffix(project)
+        return BuildVersion.VERSION_NAME + getGitHeadRefsSuffix(project)
     }
 }

@@ -1,6 +1,5 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    id("build-logic.android.application")
     alias(libs.plugins.java.zygisk)
     alias(libs.plugins.lsparanoid)
 }
@@ -14,26 +13,28 @@ zygisk {
     description = "WAuxv-Zygisk-v${GitVersion.getBuildVersionName(rootProject)}"
     entrypoint = "me.hd.wauxv.zygisk.Main"
     archiveName = "WAuxv-Zygisk-v${GitVersion.getBuildVersionName(rootProject)}"
+    isAttachNativeLibs = false
+}
+
+lsparanoid {
+    includeDependencies = false
+    variantFilter = { variant ->
+        if (variant.buildType == "release") {
+            seed = android.defaultConfig.versionCode
+            classFilter = { it.startsWith("me.hd.wauxv.") }
+            true
+        } else {
+            false
+        }
+    }
 }
 
 android {
     namespace = "me.hd.wauxv.zygisk"
-    compileSdk = BuildVersion.compileSdk
-    ndkVersion = BuildVersion.ndkVersion
+    ndkVersion = BuildVersion.NDK_VERSION
 
     defaultConfig {
-        minSdk = BuildVersion.minSdk
-        targetSdk = BuildVersion.targetSdk
-        versionCode = GitVersion.getBuildVersionCode(rootProject)
-        versionName = GitVersion.getBuildVersionName(rootProject)
-        ndk.abiFilters.addAll(arrayOf("armeabi-v7a", "arm64-v8a"))
-    }
-
-    externalNativeBuild {
-        cmake {
-            path = file("src/main/cpp/CMakeLists.txt")
-            version = BuildVersion.cmakeVersion
-        }
+        ndk.abiFilters.addAll(arrayOf("arm64-v8a"))
     }
 
     buildTypes {
@@ -43,15 +44,9 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-
-    compileOptions {
-        sourceCompatibility = BuildVersion.java
-        targetCompatibility = BuildVersion.java
-    }
 }
 
 kotlin {
-    jvmToolchain(BuildVersion.jvmToolchain)
     compilerOptions {
         freeCompilerArgs.addAll(
             "-Xno-call-assertions",

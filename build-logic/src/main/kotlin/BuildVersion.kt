@@ -4,12 +4,12 @@ object BuildVersion {
     val java = JavaVersion.VERSION_17
     val jvmToolchain = java.toString().toInt()
 
-    const val minSdk = 27
-    const val targetSdk = 36
-    const val compileSdk = 36
+    const val MIN_SDK = 27
+    const val TARGET_SDK = 36
+    const val COMPILE_SDK = 36
 
-    const val cmakeVersion = "3.22.1"
-    const val ndkVersion = "28.0.13004108"
+    const val CMAKE_VERSION = "3.22.1"
+    const val NDK_VERSION = "28.0.13004108"
 
-    const val versionName = "1.0.0"
+    const val VERSION_NAME = "1.0.0"
 }

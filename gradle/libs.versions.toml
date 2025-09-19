@@ -20,7 +20,5 @@ kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.
 eclipse-jgit = { module = "org.eclipse.jgit:org.eclipse.jgit", version.ref = "eclipseJgit" }
 
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 java-zygisk = { id = "com.github.vova7878.ZygoteLoader", version.ref = "zygisk" }
 lsparanoid = { id = "org.lsposed.lsparanoid", version.ref = "lsparanoid" }
