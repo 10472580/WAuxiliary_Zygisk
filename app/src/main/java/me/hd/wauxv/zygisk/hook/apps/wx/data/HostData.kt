@@ -2,10 +2,10 @@ package me.hd.wauxv.zygisk.hook.apps.wx.data
 
 import com.highcapable.kavaref.KavaRef.Companion.resolve
 import com.highcapable.kavaref.extension.toClass
-import org.lsposed.lsparanoid.Obfuscate
+import org.luckypray.dexkit.wrap.DexClass
+import org.luckypray.dexkit.wrap.DexMethod
 import kotlin.properties.Delegates
 
-@Obfuscate
 object HostData {
     var appClassLoader by Delegates.notNull<ClassLoader>()
     var isPlay by Delegates.notNull<Boolean>()
@@ -14,6 +14,9 @@ object HostData {
     var verClient by Delegates.notNull<String>()
 
     fun String.toAppClass() = toClass(appClassLoader)
+    fun String.toDexClass() = DexClass(this).getInstance(appClassLoader)
+    fun String.toDexMethod() = DexMethod(this).getMethodInstance(appClassLoader)
+    fun String.toDexConstructor() = DexMethod(this).getConstructorInstance(appClassLoader)
 
     fun init(loader: ClassLoader) {
         appClassLoader = loader

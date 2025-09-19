@@ -1,8 +1,5 @@
 package me.hd.wauxv.zygisk.hook.apps.qq.data
 
-import org.lsposed.lsparanoid.Obfuscate
-
-@Obfuscate
 object VerData {
     enum class QQVersion(val code: Int) {
         V9_0_0(5282),

@@ -2,9 +2,7 @@ package me.hd.wauxv.zygisk.hook.util
 
 import android.util.Log
 import com.v7878.zygisk.ZygoteLoader
-import org.lsposed.lsparanoid.Obfuscate
 
-@Obfuscate
 object WLog {
     private const val LSP = "LSPosed"
     private const val TAG = "WAuxv Zygisk"

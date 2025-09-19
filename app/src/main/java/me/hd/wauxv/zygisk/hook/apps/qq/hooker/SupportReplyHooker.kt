@@ -7,9 +7,7 @@ import com.v7878.vmtools.Hooks
 import com.v7878.vmtools.Hooks.EntryPointType
 import me.hd.wauxv.zygisk.hook.apps.qq.base.BaseHooker
 import me.hd.wauxv.zygisk.hook.apps.qq.data.HostData.toAppClass
-import org.lsposed.lsparanoid.Obfuscate
 
-@Obfuscate
 object SupportReplyHooker : BaseHooker() {
     override val name = "左滑回复限制"
 

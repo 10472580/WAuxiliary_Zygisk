@@ -8,9 +8,7 @@ import com.v7878.r8.annotations.DoNotShrink
 import com.v7878.vmtools.Hooks
 import com.v7878.vmtools.Hooks.EntryPointType
 import me.hd.wauxv.zygisk.hook.util.WLog
-import org.lsposed.lsparanoid.Obfuscate
 
-@Obfuscate
 object LoadedApkHook {
     @JvmStatic
     @DoNotShrink

@@ -5,9 +5,7 @@ import com.v7878.r8.annotations.DoNotObfuscateType
 import com.v7878.r8.annotations.DoNotShrink
 import com.v7878.r8.annotations.DoNotShrinkType
 import me.hd.wauxv.zygisk.hook.core.LoadedApkHook
-import org.lsposed.lsparanoid.Obfuscate
 
-@Obfuscate
 @DoNotShrinkType
 @DoNotObfuscateType
 object Main {
@@ -16,7 +14,6 @@ object Main {
     @DoNotObfuscate
     @Throws(Throwable::class)
     fun premain() {
-        System.loadLibrary("wauxv-zygisk")
     }
 
     @JvmStatic

@@ -1,8 +1,5 @@
 package me.hd.wauxv.zygisk.hook.apps.wx.data
 
-import org.lsposed.lsparanoid.Obfuscate
-
-@Obfuscate
 object VerData {
     enum class Version(val code: Int) {
         V8_0_40(2420),
@@ -30,7 +27,6 @@ object VerData {
 
     fun isAtLeast(version: Version) = !HostData.isPlay && HostData.verCode >= version.code
 
-    @Obfuscate
     enum class PlayVersion(val code: Int) {
         V8_0_41(2420),
         V8_0_48(2580),

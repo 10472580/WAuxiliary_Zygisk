@@ -7,9 +7,7 @@ import com.v7878.vmtools.Hooks
 import com.v7878.vmtools.Hooks.EntryPointType
 import me.hd.wauxv.zygisk.hook.apps.qq.base.BaseHooker
 import me.hd.wauxv.zygisk.hook.apps.qq.data.HostData.toAppClass
-import org.lsposed.lsparanoid.Obfuscate
 
-@Obfuscate
 object EmoReplyMenuHooker : BaseHooker() {
     override val name = "消息表态菜单"
 
