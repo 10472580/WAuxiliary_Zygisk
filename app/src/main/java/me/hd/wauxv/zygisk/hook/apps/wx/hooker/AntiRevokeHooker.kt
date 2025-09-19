@@ -5,8 +5,8 @@ import com.v7878.r8.annotations.DoNotObfuscate
 import com.v7878.r8.annotations.DoNotShrink
 import com.v7878.vmtools.Hooks
 import com.v7878.vmtools.Hooks.EntryPointType
-import me.hd.wauxv.zygisk.hook.apps.wx.WechatEntry
 import me.hd.wauxv.zygisk.hook.apps.wx.base.BaseHooker
+import me.hd.wauxv.zygisk.hook.apps.wx.data.ConfigData
 import me.hd.wauxv.zygisk.hook.apps.wx.data.HostData.toDexMethod
 
 object AntiRevokeHooker : BaseHooker() {
@@ -20,7 +20,7 @@ object AntiRevokeHooker : BaseHooker() {
     }
 
     override fun initOnce() {
-        val target = WechatEntry.configData.antiRevoke.toDexMethod()
+        val target = ConfigData.config.antiRevoke.toDexMethod()
         val hooker = AntiRevokeHooker::class.resolve().firstMethod { name = "doRevokeMsg" }
         Hooks.hook(target, hooker.self, EntryPointType.DIRECT)
     }

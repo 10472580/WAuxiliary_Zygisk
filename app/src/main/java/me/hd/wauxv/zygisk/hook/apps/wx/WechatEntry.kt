@@ -6,14 +6,10 @@ import me.hd.wauxv.zygisk.hook.apps.wx.hooker.AntiRevokeHooker
 import me.hd.wauxv.zygisk.hook.util.WLog
 
 object WechatEntry {
-    lateinit var configData: ConfigData
-
     fun init(loader: ClassLoader) {
         HostData.init(loader)
+        ConfigData.init()
         WLog.info("running on: ${HostData.toVerStr()}")
-        if (::configData.isInitialized.not()) {
-            configData = ConfigData()
-        }
         listOf(
             AntiRevokeHooker,
         ).forEach { hooker ->

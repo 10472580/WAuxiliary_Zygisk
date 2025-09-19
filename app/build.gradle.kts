@@ -2,6 +2,7 @@ plugins {
     id("build-logic.android.application")
     alias(libs.plugins.java.zygisk)
     alias(libs.plugins.lsparanoid)
+    alias(libs.plugins.serialization)
 }
 
 zygisk {
@@ -62,4 +63,5 @@ dependencies {
     implementation(libs.kavaref.core)
     implementation(libs.kavaref.extension)
     implementation(libs.dexkit)
+    implementation(libs.serialization.json)
 }
