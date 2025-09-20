@@ -23,6 +23,7 @@ object VerData {
         V8_0_60(2860),
         V8_0_61(2880),
         V8_0_62(2900),
+        V8_0_63(2920),
     }
 
     fun isAtLeast(version: Version) = !HostData.isPlay && HostData.verCode >= version.code
@@ -38,6 +39,7 @@ object VerData {
         V8_0_58(2820),
         V8_0_60(2840),
         V8_0_61(2860),
+        V8_0_62(2880),
     }
 
     fun isAtLeastPlay(version: PlayVersion) = HostData.isPlay && HostData.verCode >= version.code
