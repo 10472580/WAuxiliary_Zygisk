@@ -8,10 +8,10 @@ import kotlin.properties.Delegates
 
 object HostData {
     var appClassLoader by Delegates.notNull<ClassLoader>()
-    var isPlay by Delegates.notNull<Boolean>()
     var verName by Delegates.notNull<String>()
     var verCode by Delegates.notNull<Int>()
     var verClient by Delegates.notNull<String>()
+    var isPlay by Delegates.notNull<Boolean>()
 
     fun String.toAppClass() = toClass(appClassLoader)
     fun String.toDexClass() = DexClass(this).getInstance(appClassLoader)
@@ -21,10 +21,10 @@ object HostData {
     fun init(loader: ClassLoader) {
         appClassLoader = loader
         "com.tencent.mm.boot.BuildConfig".toAppClass().resolve().apply {
-            isPlay = firstField { name = "BUILD_TAG" }.get<String>()!!.contains("_GP_")
             verName = firstField { name = "VERSION_NAME" }.get<String>()!!
             verCode = firstField { name = "VERSION_CODE" }.get<Int>()!!
             verClient = firstField { name = "CLIENT_VERSION_ARM64" }.get<String>()!!
+            isPlay = firstField { name = "BUILD_TAG" }.get<String>()!!.contains("_GP_")
         }
     }
 
@@ -33,7 +33,8 @@ object HostData {
             if (isPlay) append("Play")
             append(verName)
             append("($verCode)")
-            append("_$verClient")
+            append("_")
+            append(verClient)
         }
     }
 }
