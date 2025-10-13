@@ -1,22 +1,21 @@
 [versions]
-agp = "8.10.1"
+agp = "8.13.0"
 kotlin = "2.2.20"
-r8annotations = "v0.0.4"
-androidvmtools = "92d44ed113"
-kavarefCore = "1.0.1"
+r8annotations = "v0.0.5"
+androidvmtools = "7d02fa75f3"
+kavarefCore = "1.0.2"
+kavarefExtension = "1.0.1"
 dexkit = "2.0.7"
-serialization = "1.9.0"
 eclipseJgit = "7.3.0.202506031305-r"
-zygisk = "358a146d87"
+zygisk = "1bcced056d"
 lsparanoid = "0.6.0"
 
 [libraries]
 r8-annotations = { module = "com.github.vova7878:R8Annotations", version.ref = "r8annotations" }
 androidvmtools = { module = "com.github.vova7878:AndroidVMTools", version.ref = "androidvmtools" }
 kavaref-core = { module = "com.highcapable.kavaref:kavaref-core", version.ref = "kavarefCore" }
-kavaref-extension = { module = "com.highcapable.kavaref:kavaref-extension", version.ref = "kavarefCore" }
+kavaref-extension = { module = "com.highcapable.kavaref:kavaref-extension", version.ref = "kavarefExtension" }
 dexkit = { module = "org.luckypray:dexkit", version.ref = "dexkit" }
-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
 android-gradle = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 eclipse-jgit = { module = "org.eclipse.jgit:org.eclipse.jgit", version.ref = "eclipseJgit" }
@@ -24,4 +23,3 @@ eclipse-jgit = { module = "org.eclipse.jgit:org.eclipse.jgit", version.ref = "ec
 [plugins]
 java-zygisk = { id = "com.github.vova7878.ZygoteLoader", version.ref = "zygisk" }
 lsparanoid = { id = "org.lsposed.lsparanoid", version.ref = "lsparanoid" }
-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }

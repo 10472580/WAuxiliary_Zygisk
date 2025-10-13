@@ -2,7 +2,6 @@ plugins {
     id("build-logic.android.application")
     alias(libs.plugins.java.zygisk)
     alias(libs.plugins.lsparanoid)
-    alias(libs.plugins.serialization)
 }
 
 zygisk {
@@ -14,7 +13,7 @@ zygisk {
     description = "WAuxv-Zygisk-v${GitVersion.getBuildVersionName(rootProject)}"
     entrypoint = "me.hd.wauxv.zygisk.Main"
     archiveName = "WAuxv-Zygisk-v${GitVersion.getBuildVersionName(rootProject)}"
-    isAttachNativeLibs = false
+    attachNativeLibs = false
 }
 
 lsparanoid {
@@ -63,5 +62,4 @@ dependencies {
     implementation(libs.kavaref.core)
     implementation(libs.kavaref.extension)
     implementation(libs.dexkit)
-    implementation(libs.serialization.json)
 }
